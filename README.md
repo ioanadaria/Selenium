@@ -4,7 +4,7 @@ A collection of Selenium WebDriver automation scripts and a pytest test suite de
 
 ## Project Structure
 
-```
+```text
 Selenium-with-Python/
 ├── conftest.py              # Shared pytest fixtures (Chrome & Firefox drivers)
 ├── requirements.txt         # Pinned dependencies
@@ -48,12 +48,14 @@ ChromeDriver and GeckoDriver are managed automatically via `webdriver-manager` �
 ## Setup
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/ioanadaria/Selenium.git
    cd Selenium/Selenium-with-Python
    ```
 
 2. (Optional) Create and activate a virtual environment:
+
    ```bash
    python -m venv venv
    # Windows
@@ -63,6 +65,7 @@ ChromeDriver and GeckoDriver are managed automatically via `webdriver-manager` �
    ```
 
 3. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -70,16 +73,19 @@ ChromeDriver and GeckoDriver are managed automatically via `webdriver-manager` �
 ## Running the Tests
 
 Run the full test suite:
+
 ```bash
 pytest tests/ -v
 ```
 
 Run with an HTML report:
+
 ```bash
 pytest tests/ -v --html=report.html
 ```
 
 Run a specific test file:
+
 ```bash
 pytest tests/test_cookies.py -v
 ```
@@ -87,7 +93,7 @@ pytest tests/test_cookies.py -v
 ## Test Coverage
 
 | Test File | What It Covers |
-|---|---|
+| --- | --- |
 | `test_alert.py` | JavaScript alert dialog handling |
 | `test_authentication.py` | Basic HTTP authentication via URL |
 | `test_basic_navigation.py` | Page navigation and element lookup (Firefox) |
@@ -102,6 +108,7 @@ pytest tests/test_cookies.py -v
 ## Running Individual Scripts
 
 Each script in the root of `Selenium-with-Python/` can be run standalone:
+
 ```bash
 python Selenium_alertAPI.py
 python Selenium_AddCookies.py
@@ -112,7 +119,7 @@ python Selenium_AddCookies.py
 Some scripts support configuration via environment variables:
 
 | Variable | Script | Description |
-|---|---|---|
+| --- | --- | --- |
 | `BASIC_AUTH_USER` | `Selenium_AuthenticationWindows.py` | Username (default: `admin`) |
 | `BASIC_AUTH_PASS` | `Selenium_AuthenticationWindows.py` | Password (default: `admin`) |
 | `UPLOAD_FILE_PATH` | `Selenium_FileUpload_AutoIt.py` | Absolute path to file for upload |
@@ -121,7 +128,7 @@ Some scripts support configuration via environment variables:
 ## Dependencies
 
 | Package | Version | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | `selenium` | 4.27.1 | WebDriver automation |
 | `pytest` | 8.3.4 | Test framework |
 | `webdriver-manager` | 4.0.2 | Automatic ChromeDriver/GeckoDriver management |
