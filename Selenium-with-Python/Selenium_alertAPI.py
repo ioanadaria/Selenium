@@ -1,9 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-# Path to your ChromeDriver
-service = Service("C:/Selenium_data/chromedriver-win64/chromedriver-win64/chromedriver.exe")
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
 URL = "https://google.com/"

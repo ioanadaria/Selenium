@@ -2,10 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 # --- Setup ChromeDriver ---
-service = Service("C:/Selenium_data/chromedriver-win64/chromedriver-win64/chromedriver.exe")
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
 # --- Open sample site with resizable element ---

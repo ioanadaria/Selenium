@@ -2,16 +2,16 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import StaleElementReferenceException, ElementClickInterceptedException, NoSuchElementException
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 # --- Config ---
-CHROMEDRIVER_PATH = "C:/Selenium_data/chromedriver-win64/chromedriver-win64/chromedriver.exe"
 URL = "https://www.w3schools.com/js/tryit.asp?filename=tryjs_myfirst"
 MAX_RETRIES = 3
 WAIT_BETWEEN_RETRIES = 1  # seconds
 
 # --- Setup Chrome ---
-service = Service(CHROMEDRIVER_PATH)
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
 try:

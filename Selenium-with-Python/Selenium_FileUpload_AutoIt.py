@@ -1,11 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import os
 import time
-import autoit
+try:
+    import autoit
+    AUTOIT_AVAILABLE = True
+except ImportError:
+    AUTOIT_AVAILABLE = False
 
 # --- Setup ChromeDriver ---
-service = Service("C:/Selenium_data/chromedriver-win64/chromedriver-win64/chromedriver.exe")
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
 # --- URL with file upload ---
@@ -13,7 +19,7 @@ URL = "https://www.w3schools.com/howto/howto_html_file_upload_button.asp"
 driver.get(URL)
 
 # --- File to upload ---
-file_path = r"C:\Users\teodo\Desktop\example.txt"  # Change to your file path
+file_path = os.environ.get("UPLOAD_FILE_PATH", r"C:\path\to\your\file.txt")  # set via env var
 
 try:
     driver.maximize_window()

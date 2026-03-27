@@ -1,15 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import os
 import time
 
-# ChromeDriver path
-service = Service("C:/Selenium_data/chromedriver-win64/chromedriver-win64/chromedriver.exe")
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
-# Replace these with your credentials and URL
-username = "myUsername"
-password = "myPassword"
-url = "https://example.com/protected"  # URL that requires basic auth
+# Credentials loaded from environment variables for security
+username = os.environ.get("BASIC_AUTH_USER", "admin")
+password = os.environ.get("BASIC_AUTH_PASS", "admin")
+url = "https://the-internet.herokuapp.com/basic_auth"
 
 # Format URL with credentials
 auth_url = f"https://{username}:{password}@{url.split('https://')[1]}"
